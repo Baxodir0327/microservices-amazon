@@ -1,0 +1,7 @@
+GET http://localhost:8089/api/v1/notification/get-secure-data
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NzU4ZWY2Yy1hNzdjLTRlMTctYjM0ZS1kN2M1MjhiMjZlOWQiLCJpYXQiOjE3MDI2NTk0MzEsImV4cCI6MTcwMjY2MzAzMX0.XSuyKCmkFWT2NfCiBVJ0Kp_H5a2G3FnsgsdLA3VSk18
+
+
+###
+GET http://localhost:8080/api/v1/notification/get-secure-data-permission
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NzU4ZWY2Yy1hNzdjLTRlMTctYjM0ZS1kN2M1MjhiMjZlOWQiLCJpYXQiOjE3MDI2NTk0MzEsImV4cCI6MTcwMjY2MzAzMX0.XSuyKCmkFWT2NfCiBVJ0Kp_H5a2G3FnsgsdLA3VSk18

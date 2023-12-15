@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: notification-service
+  datasource:
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL}
+server:
+  port: 8089
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL}
+redis:
+  cache:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    caches:
+      products: 15
+      ketmons: 155
+      orders: 50
+      users: 15

@@ -1,0 +1,19 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: product-service
+  data:
+    mongodb:
+      auto-index-creation: true
+      host: ${MONGO_HOST}
+      port: 27017
+      database: product_service
+eureka:
+  client:
+    fetch-registry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL}
+  instance:
+    hostname: localhost

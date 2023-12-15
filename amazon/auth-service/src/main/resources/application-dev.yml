@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: auth-service
+  r2dbc:
+    username: postgres
+    password: root123
+    url: r2dbc:postgresql://localhost:5432/auth_service
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/auth_service
+    user: postgres
+    password: root123
+    change-log: changelog/db.changelog-master.yaml
+server:
+  port: 8085
+
+app:
+  jwt:
+    access:
+      key: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
+      expiration: 3600000
+    refresh:
+      key: 39792F423F4528482B4D6251655468576D5A713474375367566B597033733676
+      expiration: 86400000

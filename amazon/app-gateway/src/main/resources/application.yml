@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: app-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: orderjon
+#          uri:
+#            lb://order-service
+#          predicates:
+#            - Path=/api/v1/order/**
+#        - id: productjon
+#          uri:
+#            lb://product-service
+#          predicates:
+#            - Path=/api/v1/product/**

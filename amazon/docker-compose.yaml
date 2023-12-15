@@ -1,0 +1,91 @@
+services:
+  redisjon:
+    image: redis:alpine
+    ports:
+      - "6389:6379"
+
+  euerekajon:
+    build:
+      context: ./app-service-registry
+      dockerfile: Dockerfile
+    ports:
+      - "8762:8761"
+      - "8763:8761"
+
+  darvoza:
+    build:
+      context: ./app-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_URL: http://euerekajon:8761/eureka/
+
+
+  notificationDBjon:
+    image: postgres:16-alpine
+    volumes:
+      - notification_service_volume:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ketmon
+      - POSTGRES_DB=notification_service
+
+  quyoncha:
+    image: rabbitmq:3.12-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  notification:
+    build:
+      context: ./app-notification-service
+    ports:
+      - "8089:8089"
+    depends_on:
+      - euerekajon
+      - redisjon
+      - notificationDBjon
+      - quyoncha
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://notificationDBjon:5432/notification_service
+      DATASOURCE_USERNAME: postgres
+      DATASOURCE_PASSWORD: ketmon
+      EUREKA_URL: http://euerekajon:8761/eureka/
+      REDIS_HOST: redisjon
+      REDIS_PORT: 6379
+
+
+  authDB:
+    image: postgres:16-alpine
+    volumes:
+      - auth_service_volume:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ketmon
+      - POSTGRES_DB=auth_service
+
+  authjon:
+    build:
+      context: ./auth-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - euerekajon
+      - authDB
+    environment:
+      DATASOURCE_URL: r2dbc:postgresql://authDB:5432/auth_service
+      DATASOURCE_PASS: ketmon
+      DATASOURCE_US: postgres
+      LIQ_DATASOURCE_URL: jdbc:postgresql://authDB:5432/auth_service
+      LIQ_DATASOURCE_P: ketmon
+      LIQ_DATASOURCE_US: postgres
+      EUREKA_URL: http://euerekajon:8761/eureka/
+
+
+volumes:
+  auth_service_volume:
+  notification_service_volume:

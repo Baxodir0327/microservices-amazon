@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: auth-service
+  r2dbc:
+    username: ${DATASOURCE_US}
+    password: ${DATASOURCE_PASS}
+    url: ${DATASOURCE_URL}
+  liquibase:
+    url: ${LIQ_DATASOURCE_URL}
+    user: ${LIQ_DATASOURCE_US}
+    password: ${LIQ_DATASOURCE_P}
+    change-log: changelog/db.changelog-master.yaml
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL}
+server:
+  port: 8085
+
+app:
+  jwt:
+    access:
+      key: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
+      expiration: 3600000
+    refresh:
+      key: 39792F423F4528482B4D6251655468576D5A713474375367566B597033733676
+      expiration: 86400000

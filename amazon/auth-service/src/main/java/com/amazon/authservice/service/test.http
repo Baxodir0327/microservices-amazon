@@ -1,0 +1,27 @@
+POST http://localhost:8080/api/v1/auth/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123"
+}
+###
+GET http://localhost:8085/api/v1/auth/user/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NzU4ZWY2Yy1hNzdjLTRlMTctYjM0ZS1kN2M1MjhiMjZlOWQiLCJpYXQiOjE3MDE3MDQ5MTQsImV4cCI6MTcwMTcwODUxNH0.gyLZH1C59fLhT6rZ47Lkr7DqtXqDuXRWDDATicyYwzw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTkxMDE5NC1hMTA1LTQ4YTItYTdmMi0xMjA3MzA2NzJiYzUiLCJpYXQiOjE3MDE3MDYyNTUsImV4cCI6MTcwMTcwOTg1NX0.nneptwJCF5Yqv77QTccHkqhFzet_bxtlAtKMf3pnF7w
+
+###
+GET http://localhost:8080/api/v1/product/category
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NzU4ZWY2Yy1hNzdjLTRlMTctYjM0ZS1kN2M1MjhiMjZlOWQiLCJpYXQiOjE3MDE3MDQ5MTQsImV4cCI6MTcwMTcwODUxNH0.gyLZH1C59fLhT6rZ47Lkr7DqtXqDuXRWDDATicyYwzw
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTkxMDE5NC1hMTA1LTQ4YTItYTdmMi0xMjA3MzA2NzJiYzUiLCJpYXQiOjE3MDE3MDYyNTUsImV4cCI6MTcwMTcwOTg1NX0.nneptwJCF5Yqv77QTccHkqhFzet_bxtlAtKMf3pnF7w
+
+###
+POST http://localhost:8080/api/v1/product/category
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NzU4ZWY2Yy1hNzdjLTRlMTctYjM0ZS1kN2M1MjhiMjZlOWQiLCJpYXQiOjE3MDE3MDQ5MTQsImV4cCI6MTcwMTcwODUxNH0.gyLZH1C59fLhT6rZ47Lkr7DqtXqDuXRWDDATicyYwzw
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTkxMDE5NC1hMTA1LTQ4YTItYTdmMi0xMjA3MzA2NzJiYzUiLCJpYXQiOjE3MDE3MDYyNTUsImV4cCI6MTcwMTcwOTg1NX0.nneptwJCF5Yqv77QTccHkqhFzet_bxtlAtKMf3pnF7w
+
+{
+  "name": "Uroq"
+}
+

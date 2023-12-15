@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: order-service
+  r2dbc:
+    username: postgres
+    password: root123
+    url: r2dbc:postgresql://localhost:5432/order_b29
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/order_b29
+    user: postgres
+    password: root123
+server:
+  port: 8082

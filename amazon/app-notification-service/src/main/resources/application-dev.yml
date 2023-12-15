@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: notification-service
+  datasource:
+    username: postgres
+    password: root123
+    url: jdbc:postgresql://localhost:5432/notification_service
+server:
+  port: 8089
+
+redis:
+  cache:
+    host: localhost
+    port: 6379
+    caches:
+      products: 15
+      ketmons: 155
+      orders: 50
+      users: 15
